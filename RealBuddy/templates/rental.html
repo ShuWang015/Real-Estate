@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block content %}
+<head>
+    <title>Check Average Rental Price!</title>
+</head>
+    <body>
+        {% if error %}
+            <body>
+                <div id="content">
+                    <h1> {{ error }}</a>?</h1>
+                </div>
+            </body>
+        {% endif %}
+
+        {% if avgRent %}
+            <body>
+                <div id="content">
+                    <h1>Here's the Average Rental Price of Zip Code {{ zipcode }}: $ {{ avgRent }}</a>?</h1>
+                </div>
+            </body>
+        {% endif %}
+        <div id="content">
+            <h1>Want to check somewhere else?</h1>
+            <form method="post" action="{{ url_for('rental') }}">
+                <label for="zipcode">Enter zip code:</label>
+                <input type="in" name="zipcode" placeholder="01234"/><br />
+                <br>
+                <input type="submit" />
+            </form>
+        </div>
+    </body>
+<a href='/'>Home</a>
+
+
+{% if list %}
+<div id="content">
+    <h1>Here are some example rentals: </h1>
+    {% for ls in list %}
+        <h4>{{ ls['name'] }}</h4>
+        <p>Located at: {{ ls['address'] }}, {{ ls['city'] }}, {{ ls['state'] }}, {{ ls['zipcode'] }} </p>
+        <p>Baths: {{ ls['bath'] }}; Beds: {{ ls['bed'] }}; Price: ${{ ls['price'] }}; Type: {{ ls['type'] }}</p>
+        <p>Description: {{ ls['description'] }}</p>
+        <a href="{{ ls['image'] }}">Image</a>
+        <br>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+{% if message %}
+  <h4>{{message}}!</h4>
+{% endif %}
+<title>RealBuddy</title>
+
+{% if photos %}
+<h2>Here are your photos</h2>
+    <ul>
+    {% for photo in photos %}
+
+        <li>{{photo[2]}}<br>
+        <img src='data:image/jpg;base64, {{ base64.b64encode(photo[0]).decode("ascii") }}'/></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<h4>Check <a href='/rental'>rental!</a>? </h4>
+
+<ul>
+<li><a href='/logout'>Logout</a></li>
+</ul>
+{% endblock content %}
+
+ 

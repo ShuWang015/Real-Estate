@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if message %}
+<h1> {{ message }}</h1>
+{% else  %}
+<h1> Please provide all information!</h1>
+{% endif  %}
+<br>
+<h2><a href="/register">Try again</a> or <a href="/login">login</a></h2>
+
+{% endblock content %}

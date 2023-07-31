@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<head>
+
+    <title>Create an account!</title>
+</head>
+    <body>
+        <div class="title">
+            <h1>Enter your information below</h1>
+        </div>
+        <div id="content">
+            <form method="post" action="{{ url_for('register_user') }}">
+                <label for="email">Enter your email:</label>
+                <input type="email" name="email" placeholder="123@bu.edu"/><br />
+                <br>
+                <label for="password">Enter password:</label>
+                <input type="password" name="password" placeholder="123456"/><br />
+                <br>
+                <label for="address">Enter address:</label>
+                <input type="text" name="address" placeholder="100 Brighton Ave"/><br />
+                <br>
+                <label for="zipcode">Enter zip code:</label>
+                <input type="in" name="zipcode" placeholder="01234"/><br />
+                <br>
+                <input type="reset" />   <input type="submit" />
+            </form>
+         </div>
+    </body>
+<a href='/'>Home</a>
+
+{% endblock content %}
